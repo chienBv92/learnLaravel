@@ -18,17 +18,19 @@ class ResultSeeder extends Seeder
     public function run()
     {
         // lay 50 user
-        $users = User::take(10)->get();
+        $users = User::take(100)->get();
         foreach ($users as $user){
             // lay 1 de thi ngau nhien
-            //$exam =Exam::inRandomOrder()->first();
-            $exam = Exam::find(1)->first();
+            $exam =Exam::inRandomOrder()->first();
+            //$exam = Exam::find(1)->first();
             //dd($exam->questions->count());
 
             // check trong de co cau hoi
             if($exam->questions->count() > 0){
-                foreach ($exam->questions as $question){
+                //dd($exam->questions->count());
 
+                foreach ($exam->questions as $question){
+                    $result = [];
 //                    dd($question->answers);
                     if($question->answers->count() >0){
                         $answer = $question->answers()->inRandomOrder()->first();

@@ -17,10 +17,10 @@ class AssignQuestionForExam extends Seeder
     {
         //
         $questionMaxId = 0;
-        Exam::chunk(10, function ($exams) use (&$questionMaxId){
+        Exam::chunk(100, function ($exams) use (&$questionMaxId){
 
            foreach ($exams as $exam){
-               $questions = Question::where('id', '>', $questionMaxId)->take(25)->get();
+               $questions = Question::where('id', '>', $questionMaxId)->take(50)->get();
                $examQuestion = [];
 
                if($questions->count() > 0){

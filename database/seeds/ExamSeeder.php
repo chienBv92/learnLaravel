@@ -13,6 +13,6 @@ class ExamSeeder extends Seeder
     public function run()
     {
         //
-        factory(Exam::class, 10)->create();
+        factory(Exam::class, 1000)->create();
     }
 }
