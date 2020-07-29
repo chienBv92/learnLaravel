@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-//Route::resource('api')
+Route::namespace('Api')->prefix('v1')->group(function(){
+    Route::get('exams/index', 'ExamController@index');
+});
