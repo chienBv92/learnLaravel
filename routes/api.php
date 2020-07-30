@@ -19,6 +19,14 @@ use App\Http\Controllers\Api\ExamController;
 //    return $request->user();
 //});
 
-Route::namespace('Api')->prefix('v1')->group(function(){
-    Route::get('exams/index', 'ExamController@index');
+//Route::namespace('Api')->prefix('v1')->group(function(){
+//    Route::get('exams/index', 'ExamController@index');
+//});
+
+Route::group([
+    'namespace' => 'Api',
+    'prefix' => 'v1',
+], function () {
+    //Route::get('exams/index', 'ExamController@index');
+    Route::resource('exams', 'ExamController');
 });

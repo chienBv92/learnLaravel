@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//
+//Route::namespace('Api')->prefix('v1')->group(function(){
+//    Route::get('exams/index', 'ExamController@index');
+//});
 
-Route::namespace('Api')->prefix('v1')->group(function(){
-    Route::get('exams/index', 'ExamController@index');
-});
+//Route::group([
+//    'namespace' => 'Api',
+//    'prefix' => 'v1',
+//], function () {
+//    Route::get('exams/index', 'TestController@index');
+//});

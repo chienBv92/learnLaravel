@@ -11,7 +11,7 @@ class ExamController extends Controller
     //
     private $examService;
 
-    private function __construct(ExamService $examService)
+    public function __construct(ExamService $examService)
     {
         $this->examService = $examService;
     }
