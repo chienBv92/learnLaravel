@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExamController;
+use App\Http\Controllers\Api\QuestionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,5 @@ Route::group([
 ], function () {
     //Route::get('exams/index', 'ExamController@index');
     Route::resource('exams', 'ExamController');
+    Route::resource('questions', 'QuestionController');
 });

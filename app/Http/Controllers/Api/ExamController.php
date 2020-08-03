@@ -45,7 +45,6 @@ class ExamController extends Controller
             return response()->json([
                 'status' => false,
                 'code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'exams' => $examsList,
                 'message'=> $ex->getMessage()
             ]);
 
