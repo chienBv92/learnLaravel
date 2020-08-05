@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\QuestionService;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\Api\QuestionRequest;
 
 class QuestionController extends Controller
 {
@@ -48,6 +49,27 @@ class QuestionController extends Controller
                 'message'=> $ex->getMessage()
             ]);
 
+        }
+    }
+
+    // register data
+    public function store(Request $request, $id = 0){
+        try{
+            $data = [];
+            $data['name'] = $request->get('name');
+            $exam = $this->examService->save($data, $id);
+
+            return response()->json([
+                'status' => true,
+                'code' => Response::HTTP_OK,
+                'exam' => $exam
+            ]);
+        }catch (\Exception $ex){
+            return response()->json([
+                'status' => false,
+                'code' => Response::HTTP_INTERNAL_SERVER_ERROR,
+                'message'=> $ex->getMessage()
+            ]);
         }
     }
 }

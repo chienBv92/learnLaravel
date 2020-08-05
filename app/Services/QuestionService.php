@@ -7,7 +7,7 @@ use App\Models\Question;
 class QuestionService
 {
     public function getAll($orderBys = [], $limit = 10){
-        $query = Question::query();
+        $query = Question::query()->with('answers');
         //dd($query);
         if(!empty($orderBys) && $orderBys['column'] != null && $orderBys['sort'] != null){
             $query->orderby($orderBys['column'], $orderBys['sort']);
