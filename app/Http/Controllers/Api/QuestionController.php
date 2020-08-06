@@ -53,11 +53,11 @@ class QuestionController extends Controller
     }
 
     // register data
-    public function store(Request $request, $id = 0){
+    public function store(QuestionRequest $request, $id = 0){
         try{
             $data = [];
-            $data['name'] = $request->get('name');
-            $exam = $this->examService->save($data, $id);
+            $data['content'] = $request->get('content');
+            $exam = $this->questionService->save($data, $id);
 
             return response()->json([
                 'status' => true,

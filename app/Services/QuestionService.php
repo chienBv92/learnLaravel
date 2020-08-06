@@ -20,12 +20,12 @@ class QuestionService
     public function save($data, $id = 0){
         //dd($data);
         if($id == 0){
-            $exam = new Exam();
+            $exam = new Question();
         }else{
-            $exam = Exam::query()->findOrFail($id);
+            $exam = Question::query()->findOrFail($id);
         }
 
-        $exam['name'] = $data['name'];
+        $exam['content'] = $data['content'];
         $exam->save();
 
         return $exam;
